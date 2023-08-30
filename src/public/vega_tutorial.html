@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      /* Styling for the headline container */
+      #headline-container {
+        background-color: #f60098;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+      
+      /* Styling for the headline text */
+      #headline {
+        margin: 0;
+        font-size: 24px;
+        color: rgb(51, 51, 51);
+      }
+
+      #pic1-container {
+      width: 600px;
+      height: 700px;
+      border: 1px solid violet;
+      float: left;
+      margin-top: 100px;
+    }
+
+  
+
+  
+    
+    </style>
+  </head>
+  <body>
+    <!-- <div id="chart"></div> -->
+    <!-- <div id="pic1-container">
+      <select id="data-dropdown">
+        <option value="data1" selected>Tissue</option>
+        <option value="data2">Cancer</option>
+        <!-- Add more options as needed -->
+      <!-- </select> -->
+    <div id="pic1-container"></div>
+    <div id="headline-container">
+      <h1 id="headline" align="left">Vega Tutorial</h1>
+    </div>
+
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/vega"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://unpkg.com/@observablehq/stdlib@3.24.0/dist/stdlib.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite-api"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.22.1"></script>
+    <!-- <script src="https://gist.github.com/domoritz/cd636b15fa0e187b51b73fc60b4d3014.js"></script> -->
+
+    <script>
+        const spec = "format.json";
+        vegaEmbed("#pic1-container", spec)
+            // result.view provides access to the Vega View API
+            .then(result => console.log(result))
+            .catch(console.warn);
+   
+      
+      
+    </script>
+  </body>
+</html>

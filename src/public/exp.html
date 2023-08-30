@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      /* Styling for the headline container */
+      #headline-container {
+        background-color: #f60098;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+
+      .box {
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        margin: 60px;
+      }
+
+      #column-container {
+        background-color:white;
+        padding: 5px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height:20px;
+      }
+
+
+
+      
+      
+      /* Styling for the headline text */
+      #headline {
+        margin: 0;
+        font-size: 24px;
+        color: rgb(51, 51, 51);
+      }
+
+      #pic2-container {
+      width: 1080px;
+      height: 700px;
+      border: 1px solid violet;
+      float: left;
+      margin-top: 50px;
+      position: relative;
+      transform: translateX(-300px);
+
+      }
+
+      #summary-container {
+      width: 1000px;
+      height: 500px;
+      border: 1px solid violet;
+      float: left;
+      margin-top: 300px;
+      overflow: auto;
+      transform: translateX(100px);
+      /* position: relative; */
+      
+      }
+
+      #multi-container {
+      width: 1000px;
+      height: 900px;
+      border: 1px solid violet;
+      float: right;
+      margin-top: 20px;
+      overflow: auto;
+      /* position: relative; */
+      transform: translateX(-600px);
+      
+      }
+
+      #svg1-cont {
+      width: 980px;
+      height: 700px;
+      border: 1px solid violet;
+      float: right;
+      margin-top: 10px;
+      position: relative;
+
+      }
+
+      #checkboxGrid {
+      width: 900px;
+      height: 200px;
+      border: 1px solid white;
+      float: left;
+      margin-top: 10px;
+      position: relative;
+
+      }
+
+      #sliders {
+      width: 200px;
+      height: 70px;
+      border: 2px solid white;
+      float: right;
+      margin-top: -100px;
+      position: relative;
+
+      }
+
+      #sizes {
+      width: 200px;
+      height: 70px;
+      border: 2px solid white;
+      float: right;
+      margin-top: -20px;
+      position: relative;
+      
+
+      }
+      /* #slider::-webkit-slider-thumb {
+            background-color: black;
+        } */
+      #display-label{
+        width:50px;
+        height:20px;
+        border: 1px solid violet;
+        float:left;
+        position: relative;
+
+      }
+
+      #main-container {
+        width:850px;
+        height: 540px;
+        border: 1px solid white;
+        float: left;
+        margin-top: 10px;
+        overflow: auto;
+        /* column-count: 4; Divide content into 4 columns */
+        /* column-gap: 10px; Add gap between columns */
+        /* display: flex; */
+        transform: translateX(100px)
+        /* padding-right: 100px; */
+        /* padding: 20px; */
+        
+        /* justify-content: space-between; Add space between the lists */
+      }
+
+      #snapshot-container {
+        width:100px;
+        height: 40px;
+        border: 1px solid white;
+        float: left;
+        margin-top: 40px;
+        overflow: auto;
+        /* column-count: 4; Divide content into 4 columns */
+        /* column-gap: 10px; Add gap between columns */
+        display: flex;
+        transform: translateX(250px)
+        /* padding-right: 100px; */
+        /* padding: 20px; */
+        
+        /* justify-content: space-between; Add space between the lists */
+      }
+
+    
+
+      
+      #plot-container{
+        width: 300px;
+        height: 300px;
+        border: 1px violet;
+        display: flex;
+        position: absolute; /* Use absolute positioning */
+        top: 400px; /* Position at the top of the summary container */
+        left: 775px; /* Align with the left side of the container */
+      }
+
+      .selection-panel{
+        width:50px;
+        height: 50px;
+        border: 1px black;
+        /* display: flex; */
+        float: left;
+
+      }
+
+      #numerical-container {
+        width: 480px;
+        height: 960px;
+        border: 1px solid white;
+        float: right;
+        margin-top: 20px;
+        overflow: auto;
+        /* column-count: 4; Divide content into 4 columns */
+        /* column-gap: 10px; Add gap between columns */
+        display: flex;
+        /* justify-content: space-between; Add space between the lists */
+      }
+      
+      
+      .mean-list {
+          list-style: none;
+          padding: 300px;
+          float: left;
+          position: absolute; /* Use absolute positioning */
+          top: 400px; /* Position at the top of the summary container */
+          left: 775px; /* Align with the left side of the container */
+          overflow: hidden; /* Hide overflowing content */
+          max-height: 300px; /* Set a maximum height for the list */
+                
+      }
+      .numerical-list {
+          list-style: none;
+          padding: 20px;
+          width: 108%;
+          /* overflow:auto; */
+      }
+
+      .numerical-list li {
+          margin: 30px 0;
+          font-size: 10px; /* Adjust the font size */
+      }
+      .numerical-list1 {
+          list-style: none;
+          padding: 50px;
+          margin-top: 0px;
+          /* overflow:auto; */
+      }
+
+      .numerical-list1 li {
+          margin: 10px 0;
+          font-size: 10px; /* Adjust the font size */
+      }
+
+      .name-list {
+          list-style: none;
+          padding: 10px;
+          transform: translateX(-140px)
+      }
+
+      .name-list li {
+          margin: 20px 0;
+          font-size: 15px; /* Adjust the font size */
+      }
+
+      
+
+      #svg-cont {
+      width: 1050px;
+      height: 600px;
+      border: 1px solid violet;
+      float: right;
+      margin-top: 10px;
+      position: relative;
+
+      }
+
+      #pic1-container {
+      width: 600px;
+      height: 700px;
+      border: 1px solid violet;
+      float: left;
+      margin-top: 140px;
+      transform: translateX(-350px)
+    }
+
+    #selection-container {
+      width: 400px;
+      height: 30px;
+      border: 1px solid violet;
+      float: left;
+      margin-top: 70px;
+    }
+
+    .row {
+            display: flex;
+            margin-bottom: 10px;
+        }
+    label {
+            margin-right: 10px;
+        }
+
+  
+    
+    </style>
+  </head>
+  <body>
+    <!-- <div id="chart"></div> -->
+    <div id="selection-container">
+
+      tissue_or_cancer
+      <select id="data-dropdown">
+        <option value="data1" selected>Tissue</option>
+        <option value="data2">Cancer</option>
+        <!-- Add more options as needed -->
+      </select>
+      peptide_or_protein
+      <select id="data-peppro">
+        <option value="data1" selected>Peptide</option>
+        <option value="data2">Protein</option>
+        <!-- Add more options as needed -->
+      </select>
+    </div>
+
+    <div id="pic1-container">
+      
+    </div>
+    <div id="headline-container">
+      <h1 id="headline" align="left">BioVis 2023</h1>
+    </div>
+
+ 
+
+    
+    <div id="pic2-container">
+      <button id="showHeat">Generate</button>
+      <select id="data-dropdown2">
+        <option value=0 selected>heat_0_20</option>
+        <option value=1 >heat_20_40</option>
+        <option value=2 >heat_40_60</option>
+        <option value=3 >heat_60_80</option>
+        <option value=4 >heat_80_100</option>
+        <option value=5 >heat_100_120</option>
+        <option value=6 >heat_120_140</option>
+        <option value=7 >heat_140_160</option>
+        <option value=8 >heat_160_180</option>
+        <option value=9 >heat_180_200</option>
+        <option value=10 >heat_200_220</option>
+        <option value=11 >heat_220_240</option>
+        <option value=12 >heat_240_260</option>
+        <option value=13 >heat_260_280</option>
+        <option value=14 >heat_280_300</option>
+        <option value=15 >heat_300_320</option>
+        <option value=16 >heat_320_340</option>
+        <option value=17 >heat_340_360</option>
+        <option value=18 >heat_360_380</option>
+        <option value=19 >heat_380_400</option>
+        <!-- Add more options as needed -->
+      </select>
+
+      <select id="data-dropdown3">
+        <option value="off" selected>No Thresh</option>
+        <option value=5 >thresh1</option>
+        <option value=6 >thresh2</option>
+        <option value=7 >thresh3</option>
+        <option value=9 >thresh4</option>
+        <option value=10 >thresh5</option>
+        <option value=11 >thresh6</option>
+        <option value=12 >thresh7</option>
+        <option value=13 >thresh8</option>
+        <option value=14 >thresh9</option>
+        <option value=15 >thresh10</option>
+        <option value=16 >thresh11</option>
+        <option value=17 >thresh12</option>
+        <option value=18 >thresh13</option>
+        <option value=19 >thresh14</option>
+        <option value=20 >thresh15</option>
+        <!-- Add more options as needed -->
+      </select>
+      <div id="thesh-select">
+        <input type="text" placeholder="off" onchange="updateTextBox(this.value)">
+        <p id="text-content">Threshold Selected: </p>
+      </div>
+      <div id="svg-cont"></div>
+
+    </div>
+    <div id="multi-container">
+      <div id="checkboxGrid">
+        <div class="display-label">
+          Select Fields
+        </div>
+
+      </div>
+      <button id="showSelected">Generate</button>
+      <select id="data-dropdown4">
+        <option value="steelblue" selected>Select Color</option>
+        <option value="orange" >Orange</option>
+        <option value="orangered" >OrangeRed</option>
+        <option value="blue" >Blue</option>
+        <option value="yellow" >Yellow</option>
+        <option value="black" >Black</option>
+
+      </select>
+      <div id="sliders">
+        Select Opacity Value
+        <input type="range" id="slider" min="0" max="1" step="0.1" value="0">
+        <p>Selected value: <span id="selectedValue">0</span></p>
+      </div>
+      <div id="sizes">
+        Select Circle Size
+        <input type="range" id="size" min="0" max="100" step="5" value="10">
+        <p>Selected value: <span id="selectedValue1">0</span></p>
+      </div>
+
+      <!-- <div id="col1"></div>
+      <div id="col_display"></div> -->
+      <div id="svg1-cont"></div>
+
+
+    </div>
+    <div id="summary-container">
+      <div id="column-container">
+        <div class="box">Columns</div>
+        <div class="box">Snapshot</div>
+        <div class="box">Missing</div>
+        <div class="box">Mean</div>
+        <div class="box">Median</div>
+        <div class="box">SD</div>
+      </div>
+      <div id="main-container">
+      </div>
+      <div id="numerical-container">
+        <ul class="numerical-list" id="dynamic-list1">
+        </ul>
+        <ul class="numerical-list" id="dynamic-list2">
+        </ul>
+        <ul class="numerical-list" id="dynamic-list3">
+        </ul>
+        <ul class="numerical-list" id="dynamic-list4">
+        </ul>
+      </div>
+      <ul class="name-list" id="dynamic-list">
+      </ul>
+      <!-- <ul class="mean-list" id="dynamic-list1">
+      </ul>
+
+      <ul class="missing-list" id="dynamic-list2">
+      </ul>
+
+      <ul class="median-list" id="dynamic-list3">
+      </ul>
+
+      <ul class="sd-list" id="dynamic-list4">
+      </ul> -->
+
+    </div>
+
+
+
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/vega"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://unpkg.com/@observablehq/stdlib@3.24.0/dist/stdlib.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite-api"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.9.0/math.min.js"></script>
+    <script src="mathss.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@observablehq/inputs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/htl@0.3.1/dist/htl.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/@observablehq/inputs@0.10.4/dist/inputs.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-color-legend@1.4.1/+esm"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@observablehq/inputs@0.10.4/dist/inputs.min.js"></script> -->
+
+
+
+
+    <script>
+        console.log(math.sqrt(-4).toString());
+              
+        async function loadData() {
+          try {
+              const rows = await d3.csv("scatterplot.csv", function(d) {
+                return {
+                    dimA: parseFloat(d.dim0),
+                    dimB: parseFloat(d.dim1),
+                    tissue: d.tissue // convert "Length" column to number
+                };
+              });
+
+              console.log(rows);
+            return rows;
+          } catch (error) {
+              console.error("Error loading CSV:", error);
+          }
+        }
+
+        async function loadSamplePep() {
+          try {
+              const rows = await d3.csv("samplePepLat.csv", function(d) {
+                return {
+                  Haematopoietic_and_Lymphoid: parseFloat(d.Haematopoietic_and_Lymphoid),
+                  Esophagus: parseFloat(d.Esophagus),
+                  Stomach: parseFloat(d.Stomach),
+                  Bone: parseFloat(d.Bone),
+                  Breast: parseFloat(d.Breast),
+                  Lung: parseFloat(d.Lung),
+                  Control_HEK293T: parseFloat(d.Control_HEK293T),
+                  Adrenal_Gland: parseFloat(d.Adrenal_Gland),
+                  Central_Nervous_System: parseFloat(d.Central_Nervous_System),
+                  Endometrium: parseFloat(d.Endometrium),
+                  Skin: parseFloat(d.Skin),
+                  Ovary: parseFloat(d.Ovary),
+                  Head_and_Neck: parseFloat(d.Head_and_Neck),
+                  Pancreas: parseFloat(d.Pancreas),
+                  Prostate: parseFloat(d.Prostate),
+                  Peripheral_Nervous_System: parseFloat(d.Peripheral_Nervous_System),
+                  Other_tissue: parseFloat(d.Other_tissue),
+                  Large_Intestine: parseFloat(d.Large_Intestine),
+                  Soft_Tissue: parseFloat(d.Soft_Tissue),
+                  Liver: parseFloat(d.Liver),
+                  Kidney: parseFloat(d.Kidney),
+                  Cervix: parseFloat(d.Cervix),
+                  Biliary_Tract: parseFloat(d.Biliary_Tract),
+                  Bladder: parseFloat(d.Bladder),
+                  Testis: parseFloat(d.Testis),
+                  Thyroid: parseFloat(d.Thyroid),
+                  Vulva: parseFloat(d.Vulva),
+                  Small_Intestine: parseFloat(d.Small_Intestine),
+                  Placenta: parseFloat(d.Placenta),
+                  peptide_name:d.peptide_name
+                };
+              });
+
+              console.log(rows);
+            return rows;
+          } catch (error) {
+              console.error("Error loading CSV:", error);
+          }
+        }
+      // const data1 =loadData();
+
+      async function loadData(data_val) {
+          try {
+              if (data_val=="data1"){
+                const rows = await d3.csv("scatterplot.csv", function(d) {
+                  return {
+                      dimA: parseFloat(d.dim0),
+                      dimB: parseFloat(d.dim1),
+                      tissue: d.tissue // convert "Length" column to number
+                  };
+                });
+                
+
+                console.log(rows);
+              return rows;
+            }
+
+            if (data_val=="data2"){
+                const rows = await d3.csv("scatterplotCan.csv", function(d) {
+                  return {
+                      dimA: parseFloat(d.dim0),
+                      dimB: parseFloat(d.dim1),
+                      tissue: d.tissue // convert "Length" column to number
+                  };
+                });
+                
+
+                console.log(rows);
+              return rows;
+            }
+            
+          } catch (error) {
+              console.error("Error loading CSV:", error);
+          }
+        }
+
+      async function loadNanDt(){
+        try{
+          peptide_df_nan= d3.csvParse(
+            await observablehq.FileAttachments("samplePepnan.csv"),
+            d3.autoType)
+          console.log(peptide_df_nan);
+          return peptide_df_nan;
+        }catch (error) {
+              console.error("Error loading CSV:", error);
+          }
+
+      }
+      
+      
+      const options = {
+        config: {
+          // vega-lite default configuration
+        },
+        init: (view) => {
+          // initialize tooltip handler
+          view.tooltip(new vegaTooltip.Handler().call);
+          // enable horizontal scrolling for large plots
+          if (view.container()) view.container().style["overflow-x"] = "auto";
+        },
+        view: {
+          // view constructor options
+          loader: vega.loader({
+            baseURL: "https://cdn.jsdelivr.net/npm/vega-datasets@1/",
+          }),
+          renderer: "canvas",
+        },
+      };
+
+      vl.register(vega, vegaLite, options);
+      async function summ(){
+        const nan_data= await loadNanDt();
+        return nan_data
+      }
+
+      function euclideanDistance(a, b) {
+        let sum = 0;
+        for (let i = 0; i < a.length; i++) {
+          sum += Math.pow(a[i] - b[i], 2);
+        }
+        
+        return Math.sqrt(sum);
+      }
+
+      function format_array(dist,peptides,thresh){
+
+        const formattedArray = [];
+        
+        for (let i = 0; i < peptides.length; i++) {
+          for (let j = 0; j < peptides.length; j++) {
+            if(thresh!="off"){
+              if(dist[i][j]>thresh){
+                formattedArray.push({"pep1":peptides[i], "pep2":peptides[j], "distance":dist[i][j],"thresh":thresh});
+              }
+              else{
+                formattedArray.push({"pep1":peptides[i], "pep2":peptides[j], "distance":0,"thresh":thresh})
+              }
+            }
+            else{
+              formattedArray.push({"pep1":peptides[i], "pep2":peptides[j], "distance":dist[i][j],"thresh":"off"})
+            }
+          }
+        }
+
+        return formattedArray
+      }
+
+      async function euclidean_distance(heat_map_data){
+
+        let values = [];
+        for (let row of heat_map_data) {    
+          let rowValues = [];
+          for (let [key, value] of Object.entries(row)) {
+            if (key !== "peptide_name") {
+              rowValues.push(parseFloat(value));
+            }
+          }
+          
+          values.push(rowValues);
+        }
+
+        var distances = [];
+        
+        for (let i = 0; i < values.length; i++) {
+          distances.push([]);
+          for (let j = 0; j < values.length; j++) {
+            distances[i].push(euclideanDistance(values[i], values[j]));
+          }
+        }
+        const peptides = heat_map_data.map((d) => d.peptide_name);
+
+        return [distances,peptides];
+
+      }
+      async function return_column_names(){
+        const [statsList,dataList,columnNames]=await summary_table_stats()
+        return [columnNames,dataList]
+        
+
+      }
+      const selectedColumns = [];
+      function updateSelectedColumns() {
+            selectedColumns.length = 0;
+
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            checkboxes.forEach(checkbox => {
+                selectedColumns.push(checkbox.value);
+            });
+        }
+
+      function displaySelectedColumns(dataAll,colors,val_slider,val_size) {
+            updateSelectedColumns();
+            console.log("Selected Columns:", selectedColumns);
+            // drawGraph(selectedColumns,dataAll);
+            drawGraph(selectedColumns,dataAll,colors,val_slider,val_size);
+            // if (selectedColumns.length>0){
+            //   renderSummary(selectedColumns);
+            // }
+            
+        }
+
+      async function checkbox(columns,dataAll){
+        const checkboxGrid = document.getElementById("checkboxGrid");
+        
+        for (let i = 0; i < math.ceil(columns.length / 5); i++) {
+            const row = document.createElement("div");
+            row.classList.add("row");
+            
+            for (let j = 0; j < 5 && (i * 5 + j) < columns.length; j++) {
+                const elementIndex = i * 5 + j;
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.value = columns[elementIndex];
+                
+                const label = document.createElement("label");
+                label.appendChild(checkbox);
+                label.appendChild(document.createTextNode(columns[elementIndex]));
+                
+                row.appendChild(label);
+            }
+            
+            checkboxGrid.appendChild(row);
+        }
+
+        const slider = document.getElementById("slider");
+        const size = document.getElementById("size");
+
+        const selectedValueSpan = document.getElementById("selectedValue");
+        const selectedValueSpan1 = document.getElementById("selectedValue1");
+
+        const val_slider = 0.4;
+        slider.addEventListener("input", function() {
+            const selectedValue = slider.value;
+            selectedValueSpan.textContent = selectedValue;
+            val_slider = parseFloat(selectedValue);
+        });
+
+        const val_size = 10;
+        size.addEventListener("input", function() {
+            const selectedValue = size.value;
+            selectedValueSpan1.textContent = selectedValue;
+            val_size = parseInt(selectedValue);
+        });
+
+        const dropdown4 = document.getElementById("data-dropdown4");
+
+        var color ="steelblue";
+        dropdown4.addEventListener("change", function() {
+          const selectedOptionValue = this.value;
+          color = selectedOptionValue;
+        })
+
+
+        const showSelectedButton = document.getElementById("showSelected");
+        showSelectedButton.addEventListener('click', () =>displaySelectedColumns(dataAll,color,val_slider,val_size));
+        // await drawGraph(selectedColumns,dataAll);
+        // const showSelectedButton = document.getElementById("showSelected");
+        // updateSelectedColumns();
+        // console.log(selectedColumns);
+        // showSelectedButton.addEventListener('click', displaySelectedColumns);
+
+
+      }
+      async function selectionPanel(columns,dataAll){
+        const fields = Inputs.checkbox(columns, {
+              label: "fields",
+              onChange: handleCheckboxChange
+
+              // value: columns.slice(1, 4 + (document.body.clientWidth / 928) * 8)
+
+            })
+        document.getElementById("sel1").appendChild(fields);
+
+    //     vl.markCircle({size: 60, opacity: 0.2,fill:"orangered"})
+    //  .data(weather)
+    // .encode(
+    //   vl.x().fieldQ(vl.repeat('column')),
+    //   vl.y().fieldQ(vl.repeat('row')),
+    //   vl.tooltip("wind")
+    //   // vl.color().field("wind").type("quantitative")
+    //   // vl.fill().value("red")
+    // )
+    // .width(125)
+    // .height(125)
+    // .repeat({
+    //   row: ['wind', 'precipitation', 'temp_max'],
+    //   column: ['wind', 'precipitation', 'temp_max']
+    // }).render();
+
+        
+
+      }
+
+      function drawGraph(columns_selected,dataAll,colors,val_slider,val_size){
+
+        if (columns_selected.length>0){
+          const format_data=[];
+          const selected_data ={};
+
+          for(let i=0;i<columns_selected.length;i++){
+            var col_name = columns_selected[i];
+            selected_data[col_name]=dataAll[col_name];
+          }
+
+          const result = [];
+          const keys = Object.keys(selected_data);
+          const numEntries = selected_data[keys[0]].length;
+
+          for (let i = 0; i < numEntries; i++) {
+              const entry = {};
+              keys.forEach(key => {
+                  entry[key] = selected_data[key][i];
+              });
+              result.push(entry);
+            }
+          console.log(result);
+          document.getElementById("svg1-cont").innerHTML="";
+          vl.markCircle({size: val_size, opacity: val_slider,fill:colors})
+            .data(result)
+            .encode(
+              vl.x().fieldQ(vl.repeat('column')),
+              vl.y().fieldQ(vl.repeat('row')),
+              vl.tooltip(columns_selected)
+            )
+            .width(250)
+            .height(250)
+            .repeat({
+              row: columns_selected,
+              column: columns_selected
+            }
+
+            ).render().then((chart) => {
+                    document.getElementById("svg1-cont").appendChild(chart);
+                  });
+          
+          }
+          
+       
+
+
+      }
+
+      async function renderMultiPlot(){
+        const [column_names,dataAll] = await return_column_names();
+        await checkbox(column_names,dataAll);
+        
+        // await selectionPanel(column_names,dataAll);
+
+        // vl.markCircle({size: 60, opacity: 0.2,fill:"orangered"})
+        //   .data(weather)
+        //       .encode(
+        //         vl.x().fieldQ(vl.repeat('column')),
+        //         vl.y().fieldQ(vl.repeat('row')),
+        //         vl.tooltip("wind")
+        //         // vl.color().field("wind").type("quantitative")
+        //         // vl.fill().value("red")
+        //       )
+        //       .width(125)
+        //       .height(125)
+        //       .repeat({
+        //         row: ['wind', 'precipitation', 'temp_max'],
+        //         column: ['wind', 'precipitation', 'temp_max']
+        //       }).render();
+      }
+      async function summary_table_stats(){
+        const data2 = await loadSamplePep();
+        const columns = data2.columns;
+        var overallList =[]
+        var densityPlots ={};
+        for (let i=0;i<columns.length;i++){
+          const dict_vals={};
+          var zeroCount=0;
+          var sel_col = columns[i];
+          if (sel_col!="peptide_name"){
+            dict_vals["column"]=sel_col;
+            data_vals = data2.map(d => +d[sel_col]);
+            var density_plot ={}
+            densityPlots[sel_col]=data_vals;
+            // density_plot["array"]=data_vals;
+            // densityPlots.push(density_plot);
+            for (let i = 0; i < data_vals.length; i++) {
+              if (data_vals[i] === 0) {
+                zeroCount++;
+              }
+            }
+            dict_vals["missing"]=math.round(100*(zeroCount/data_vals.length),1);
+            const sums = math.sum(data_vals);
+            const mean = math.round(sums/(data_vals.length-zeroCount),1);
+            dict_vals["mean"]=mean
+            dict_vals["median"]=math.round(math.median(data_vals),1);
+            dict_vals["sd"] = math.round(math.std(data_vals),1);
+            overallList.push(dict_vals);
+          }
+        }
+        console.log("calculationg stats");
+        return [overallList,densityPlots,data2.columns];
+
+      }
+      async function heatMapData(dataVal){
+        const data2 = await loadSamplePep();
+        console.log("data reloaded");
+        const totalRows = 20000;
+        const sliceSize = 20;
+        var startIndex = 0;
+        var slicedDataFrames = [];
+        while (startIndex < totalRows) {
+          // Calculate the ending index for the current slice
+          const endIndex = Math.min(startIndex + sliceSize, totalRows);
+        
+          // Slice the DataFrame using the current start and end index
+          const slicedDataFrame = data2.slice(startIndex, endIndex);
+        
+          // Add the sliced DataFrame to the array
+          slicedDataFrames.push(slicedDataFrame);
+          // printTable(slicedDataFrame.length);
+        
+          // Move the starting index to the next slice
+          startIndex = endIndex;
+        }
+        return euclidean_distance(slicedDataFrames[dataVal]);
+
+      }
+      async function renderHeat(heatD,thresh){
+        const [dt1,peptides] = await heatMapData(heatD);
+
+        const format = format_array(dt1,peptides,thresh=thresh);
+
+        vl.markRect({tooltip: {"content": "data"}, clip: true})
+          .data(format)
+          .encode(
+            vl.y().fieldO("pep1"),
+            vl.x().fieldO("pep2"),
+            vl.color().average("distance"),
+
+            // vl.tooltip().field("value"),
+          )
+          .width(700)
+          .height(250)
+          .render().then((chart) => {
+                    document.getElementById("svg-cont").appendChild(chart);
+                  });
+
+      }
+      async function draw_density_plot(data,chart_name){
+        vl.markBar()
+          .data(data)
+          .encode(
+            vl.x().fieldQ('value'),
+            vl.y().count().axis({ orient: 'right' }).axis(null),
+            vl.size().value(3) 
+          )
+          .width(100)
+          .height(40)
+          .config({ view: { stroke: null }})
+          .render().then((chart) => {
+                    document.getElementById(chart_name.id).appendChild(chart);
+                  });
+
+      }
+      async function renderSummary(){
+        
+        const [statsList,dataList,columnNames]=await summary_table_stats();
+        var containerStack = document.getElementById('main-container');
+
+        var previousContainer = null;
+        var container_list =[];
+        const n=columnNames.length;
+        // width:850px;
+        // height: 540px;
+        for (var i = 0; i < n; i++) {
+            var container = document.createElement('div');
+            container.style.border = '1px solid white';
+            container.style.margin = '10px 10px 10px 0';
+            // container.style.padding = '10px';
+            container.style.width='750px'
+            container.style.height='200px'
+            container.id = 'snapshot-container'+String(i);
+            // var text = document.createTextNode(selectedColumns[i]);
+            // container.appendChild(text);
+            if (previousContainer) {
+              containerStack.insertBefore(container, previousContainer.nextSibling);
+            } else {
+                    containerStack.appendChild(container);
+            }
+
+                // Update the previous container reference
+            previousContainer = container;
+            container_list.push(container);
+            // containerStack.appendChild(container);
+        }
+
+        const means1 = statsList
+          .filter(entry => columnNames.includes(entry.column))
+          .map(entry => entry.mean);
+
+        const missing = statsList
+          .filter(entry => columnNames.includes(entry.column))
+          .map(entry => entry.missing);
+
+        const means = statsList
+          .filter(entry => columnNames.includes(entry.column))
+          .map(entry => entry.mean);
+
+   
+        const median = statsList
+          .filter(entry => columnNames.includes(entry.column))
+          .map(entry => entry.median);
+        const sd = statsList
+          .filter(entry => columnNames.includes(entry.column))
+          .map(entry => entry.sd);
+
+
+        // const data2 = await loadSamplePep();
+        var keys = Object.keys(dataList)
+        for (var i = 0; i < n; i++) {
+          key = columnNames[i];
+          // const histogramChart = Histogram(data2, key, "continuous");
+          // const container = document.querySelector(String('#')+container_list[i].id);
+          // container.appendChild(histogramChart);
+          var data_arr=dataList[key];
+          const sampledData = math.pickRandom(data_arr, 1000)
+
+          const plot = Plot.rectY({length:1000}, Plot.binX({y: "count",axis:null}, {x: sampledData,fill:"rgba(242, 142, 44, 0.6)"})).plot({width:150,height:120,style:{fontsize:6}});
+          
+          const div = document.querySelector(String('#')+container_list[i].id);
+          div.append(plot);
+          const textElement = document.createElement("div");
+          textElement.textContent = String(missing[i])+"%";
+          textElement.style.fontSize = "12px"; // Adjust font size as needed
+          textElement.style.marginLeft = "300px"; // Adjust the margin as needed
+          textElement.style.position = "relative";
+          textElement.style.transform = "translateY(-60px)";
+          // textElement.style.top = "20px"; // Adjust the top position as needed
+          
+          div.appendChild(textElement);
+          const textElement1 = document.createElement("div");
+          textElement1.textContent = String(means[i]);
+          textElement1.style.fontSize = "12px"; // Adjust font size as needed
+          textElement1.style.marginLeft = "450px"; // Adjust the margin as needed
+          textElement1.style.position = "relative";
+          textElement1.style.transform = "translateY(-70px)";
+          // textElement.style.top = "20px"; 
+
+          div.appendChild(textElement1);
+
+          const textElement2 = document.createElement("div");
+          textElement2.textContent = String(median[i]);
+          textElement2.style.fontSize = "12px"; // Adjust font size as needed
+          textElement2.style.marginLeft = "580px"; // Adjust the margin as needed
+          textElement2.style.position = "relative";
+          textElement2.style.transform = "translateY(-83px)";
+          // textElement.style.top = "20px"; 
+
+          div.appendChild(textElement2);
+
+          const textElement3 = document.createElement("div");
+          textElement3.textContent = String(sd[i]);
+          textElement3.style.fontSize = "12px"; // Adjust font size as needed
+          textElement3.style.marginLeft = "730px"; // Adjust the margin as needed
+          textElement3.style.position = "relative";
+          textElement3.style.transform = "translateY(-95px)";
+          // textElement.style.top = "20px"; 
+
+          div.appendChild(textElement3);
+
+
+          const column = document.createElement("div");
+          column.textContent = columnNames[i];
+          column.style.fontSize = "12px"; // Adjust font size as needed
+          column.style.marginLeft = "10px"; // Adjust the margin as needed
+          column.style.position = "relative";
+          column.style.transform = "translateY(-110px)";
+          // textElement.style.top = "20px"; 
+
+          div.appendChild(column);
+          plot.style.transform = "translateX(130px)";
+
+          // var data_arr = dataList[key];
+          // var formatted_data=[];
+          // for(var j=0;j<data_arr.length;j++){
+          //   var objs = {};
+          //   objs["value"]=data_arr[j];
+          //   formatted_data.push(objs);
+          // }
+          // await draw_density_plot(formatted_data,container_list[i]);
+
+        }
+
+
+
+        // const dynamicList = document.getElementById('dynamic-list');
+        // selected_column_names.forEach(name => {
+        //     const listItem = document.createElement('li');
+        //     listItem.textContent = name;
+        //     const data_draw = dataList[name];
+            
+        //     dynamicList.appendChild(listItem);
+        // });
+        
+
+        // const meanList = document.getElementById('dynamic-list2');
+        // means.forEach(name => {
+        //     const listItem = document.createElement('li');
+        //     listItem.textContent = name;
+        //     meanList.appendChild(listItem);
+        // });
+
+        // const miss = document.getElementById('dynamic-list1');
+        // missing.forEach(name => {
+        //     const listItem = document.createElement('li');
+        //     listItem.textContent = String(name)+"%";
+        //     miss.appendChild(listItem);
+        // });
+
+        // const meds = document.getElementById('dynamic-list3');
+        // median.forEach(name => {
+        //     const listItem = document.createElement('li');
+        //     listItem.textContent = name;
+        //     meds.appendChild(listItem);
+        // });
+
+        // const sds = document.getElementById('dynamic-list4');
+        // sd.forEach(name => {
+        //     const listItem = document.createElement('li');
+        //     listItem.textContent = name;
+        //     sds.appendChild(listItem);
+        // });
+
+      }
+      async function renderChart(data_val){
+          // create an interval selection over an x-axis encoding
+          const data1 = await loadData(data_val);
+          var val="tissue";
+          if(data_val=="data2"){
+            val="cancer"
+          }
+
+          const brush = vl.selectInterval().encodings('x');
+        
+          // const isOrigin = vl.selectPoint('isOrigin')
+          //   .fields('tissue')
+          //   .bind('legend'); // bind to legend interactions
+          
+          // determine opacity based on brush
+          const opacity = vl.opacity().if(brush, vl.value(1.0)).value(0.0);
+          // const show = vl.and(isOrigin); // combine selections
+        
+  
+          // an overview histogram of cars per year
+          // add the interval brush to select cars over time
+          const overview = vl.markBar()
+            .encode(
+              vl.x().fieldO('tissue') // extract year unit, treat as ordinal
+                .axis({title: null, labelAngle: 90}),  // no title, no label angle
+              vl.y().count().title(null),             // counts, no axis title
+              opacity  // modulate bar opacity based on the brush selection
+            )
+            .params(brush) // add interval brush selection to the chart
+            .width(400)    // use the full default chart width
+            .height(200);   // set chart height to 50 pixels
+          
+          // a detail scatterplot of horsepower vs. mileage
+          // const selection = vl.selectInterval();
+          const selection = vl.selectInterval().name("mySelection");
+          const detail = vl.markPoint()
+            .encode(
+              vl.x().fieldQ('dimA'),
+              vl.y().fieldQ('dimB'),
+              vl.color().fieldN('tissue'),
+              vl.tooltip(['tissue']),
+              vl.size().if(brush, vl.value(100)).value(1000),
+              vl.opacity().if(selection).value(0.1),
+          
+              // vl.color().if(show, vl.color().fieldN('tissue')).value('grey'),
+              opacity  // modulate point opacity based on the brush selection
+            )
+            .params(selection)
+           
+            // .transform(vl.filter(selection))
+            .width(400)
+            .height(200)
+            ;
+  
+          // vertically concatenate (vconcat) charts
+          // return vl.data(data1).vconcat(overview, detail).render();
+          vl.data(data1).vconcat(overview, detail).render().then((chart) => {
+                    document.getElementById("pic1-container").appendChild(chart);
+                  });
+          
+          // detail.view.addSignalListener('mySelection', (name, value) => {
+          //   if (value !== null) {
+          //     const selectedData = data1.filter(
+          //       (car) =>
+          //       data1.dimA >= value[0] && data1.dimB <= value[1]
+          //     );
+          //     console.log('Selected Data:', selectedData);
+          //     // You can do whatever you want with the selected data
+          //   }
+          // });
+    }
+    const ret = `
+        <select id="data-dropdown">
+          <option value="data1">Tissue</option>
+          <option value="data2" selected>Cancer</option>
+          <!-- Add more options as needed -->
+        </select>
+      `;
+          
+        
+    const dropdown = document.getElementById("data-dropdown");
+    dropdown.addEventListener("change", function() {
+        const selectedOptionValue = this.value;
+        document.getElementById("pic1-container").innerHTML="";
+        // document.getElementById("pic1-container").innerHTML=ret;
+        renderChart(selectedOptionValue);
+
+      });
+
+    function updateTextBox(value) {
+      var textCont = document.getElementById('thesh-select');
+      textCont.innerHTML = 'Threshold Selected: ' + value;
+    }
+    renderChart("data1");
+    const dropdown2 = document.getElementById("data-dropdown2");
+    const dropdown3 = document.getElementById("data-dropdown3");
+    var thresh_val= "off";
+    dropdown3.addEventListener("change", function() {
+        const selectedOptionValue = this.value;
+        // document.getElementById("svg-cont").innerHTML="";
+        // document.getElementById("pic2-container").innerHTML=ret2;
+        if (selectedOptionValue!="off"){
+          thresh_val = parseInt(selectedOptionValue);
+        }
+        updateTextBox(thresh_val);
+        
+      });
+
+    dropdown2.addEventListener("change", function() {
+        const selectedOptionValue = parseInt(this.value);
+        document.getElementById("svg-cont").innerHTML="";
+        // document.getElementById("pic2-container").innerHTML=ret2;
+        const showSelectedButton1 = document.getElementById("showHeat");
+        if(document.getElementById("svg-cont").innerHTML!=""){
+          document.getElementById("svg-cont").innerHTML="";
+          showSelectedButton1.addEventListener('click', () =>renderHeat(selectedOptionValue,thresh_val));
+        }
+    
+        
+        
+
+      });
+    
+
+    const showSelectedButton1 = document.getElementById("showHeat");
+    showSelectedButton1.addEventListener('click', () =>renderHeat(0,thresh_val));
+    
+    
+    renderMultiPlot();
+    renderSummary();
+    // summary_table_stats();
+
+  
+    // heatMapData(1);
+
+      // async function renderChart(){
+
+      //   const data1 = await loadData();
+      //   vl.markBar()
+      //     .data(data1)
+      //     .encode(
+      //       vl.y().count('tissue').title('Name of Tissue'),
+      //       vl.x().fieldN('tissue').title("Tissue Count In Data")
+      //     )
+      //     .render()
+      //     .then((chart) => {
+      //       document.getElementById("pic1-container").appendChild(chart);
+      //     });
+      // }
+      
+      
+    </script>
+  </body>
+</html>
