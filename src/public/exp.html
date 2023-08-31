@@ -18,9 +18,11 @@
         color: black;
         display: flex;
         align-items: center;
-        justify-content: center;
-        font-size: 10px;
-        margin: 60px;
+        justify-content:  flex-start;
+        font-size: 15px;
+        margin: 95px;
+        padding: 12px;
+        /* margin-left: 10px; */
       }
 
       #column-container {
@@ -48,16 +50,16 @@
       #pic2-container {
       width: 1080px;
       height: 700px;
-      border: 1px solid violet;
+      border: 1px solid white;
       float: left;
       margin-top: 50px;
       position: relative;
-      transform: translateX(-300px);
+      transform: translateX(10px);
 
       }
 
       #summary-container {
-      width: 1000px;
+      width: 1500px;
       height: 500px;
       border: 1px solid violet;
       float: left;
@@ -133,7 +135,7 @@
       }
 
       #main-container {
-        width:850px;
+        width:1400px;
         height: 540px;
         border: 1px solid white;
         float: left;
@@ -142,7 +144,7 @@
         /* column-count: 4; Divide content into 4 columns */
         /* column-gap: 10px; Add gap between columns */
         /* display: flex; */
-        transform: translateX(100px)
+        transform: translateX(80px)
         /* padding-right: 100px; */
         /* padding: 20px; */
         
@@ -252,7 +254,7 @@
       #svg-cont {
       width: 1050px;
       height: 600px;
-      border: 1px solid violet;
+      border: 1px solid white;
       float: right;
       margin-top: 10px;
       position: relative;
@@ -262,7 +264,7 @@
       #pic1-container {
       width: 600px;
       height: 700px;
-      border: 1px solid violet;
+      border: 1px solid white;
       float: left;
       margin-top: 140px;
       transform: translateX(-350px)
@@ -954,16 +956,17 @@
         var previousContainer = null;
         var container_list =[];
         const n=columnNames.length;
-        // width:850px;
+        // width:1400px;
         // height: 540px;
         for (var i = 0; i < n; i++) {
             var container = document.createElement('div');
             container.style.border = '1px solid white';
             container.style.margin = '10px 10px 10px 0';
             // container.style.padding = '10px';
-            container.style.width='750px'
-            container.style.height='200px'
+            container.style.width='1300px'
+            container.style.height='180px'
             container.id = 'snapshot-container'+String(i);
+            // container.style.transform = "translateY(-70px)";
             // var text = document.createTextNode(selectedColumns[i]);
             // container.appendChild(text);
             if (previousContainer) {
@@ -1007,16 +1010,16 @@
           // const container = document.querySelector(String('#')+container_list[i].id);
           // container.appendChild(histogramChart);
           var data_arr=dataList[key];
-          const sampledData = math.pickRandom(data_arr, 1000)
+          const sampledData = math.pickRandom(data_arr, 5000)
 
-          const plot = Plot.rectY({length:1000}, Plot.binX({y: "count",axis:null}, {x: sampledData,fill:"rgba(242, 142, 44, 0.6)"})).plot({width:150,height:120,style:{fontsize:6}});
+          const plot = Plot.rectY({length:1000}, Plot.binX({y: "count",axis:null}, {x: sampledData,fill:"rgba(242, 142, 44, 0.6)"})).plot({width:300,height:180,style:{fontsize:6}});
           
           const div = document.querySelector(String('#')+container_list[i].id);
           div.append(plot);
           const textElement = document.createElement("div");
           textElement.textContent = String(missing[i])+"%";
-          textElement.style.fontSize = "12px"; // Adjust font size as needed
-          textElement.style.marginLeft = "300px"; // Adjust the margin as needed
+          textElement.style.fontSize = "15px"; // Adjust font size as needed
+          textElement.style.marginLeft = "570px"; // Adjust the margin as needed
           textElement.style.position = "relative";
           textElement.style.transform = "translateY(-60px)";
           // textElement.style.top = "20px"; // Adjust the top position as needed
@@ -1024,30 +1027,30 @@
           div.appendChild(textElement);
           const textElement1 = document.createElement("div");
           textElement1.textContent = String(means[i]);
-          textElement1.style.fontSize = "12px"; // Adjust font size as needed
-          textElement1.style.marginLeft = "450px"; // Adjust the margin as needed
+          textElement1.style.fontSize = "15px"; // Adjust font size as needed
+          textElement1.style.marginLeft = "780px"; // Adjust the margin as needed
           textElement1.style.position = "relative";
-          textElement1.style.transform = "translateY(-70px)";
+          textElement1.style.transform = "translateY(-80px)";
           // textElement.style.top = "20px"; 
 
           div.appendChild(textElement1);
 
           const textElement2 = document.createElement("div");
           textElement2.textContent = String(median[i]);
-          textElement2.style.fontSize = "12px"; // Adjust font size as needed
-          textElement2.style.marginLeft = "580px"; // Adjust the margin as needed
+          textElement2.style.fontSize = "15px"; // Adjust font size as needed
+          textElement2.style.marginLeft = "1020px"; // Adjust the margin as needed
           textElement2.style.position = "relative";
-          textElement2.style.transform = "translateY(-83px)";
+          textElement2.style.transform = "translateY(-100px)";
           // textElement.style.top = "20px"; 
 
           div.appendChild(textElement2);
 
           const textElement3 = document.createElement("div");
           textElement3.textContent = String(sd[i]);
-          textElement3.style.fontSize = "12px"; // Adjust font size as needed
-          textElement3.style.marginLeft = "730px"; // Adjust the margin as needed
+          textElement3.style.fontSize = "15px"; // Adjust font size as needed
+          textElement3.style.marginLeft = "1240px"; // Adjust the margin as needed
           textElement3.style.position = "relative";
-          textElement3.style.transform = "translateY(-95px)";
+          textElement3.style.transform = "translateY(-120px)";
           // textElement.style.top = "20px"; 
 
           div.appendChild(textElement3);
@@ -1055,14 +1058,18 @@
 
           const column = document.createElement("div");
           column.textContent = columnNames[i];
-          column.style.fontSize = "12px"; // Adjust font size as needed
-          column.style.marginLeft = "10px"; // Adjust the margin as needed
+          column.style.fontSize = "15px"; // Adjust font size as needed
+          column.style.marginLeft = "20px"; // Adjust the margin as needed
           column.style.position = "relative";
-          column.style.transform = "translateY(-110px)";
+          column.style.whiteSpace = "normal";
+          column.style.overflowWrap= "break-word";
+          column.style.inlineSize="130px";
+          column.style.transform = "translateY(-140px)";
+          
           // textElement.style.top = "20px"; 
 
           div.appendChild(column);
-          plot.style.transform = "translateX(130px)";
+          plot.style.transform = "translateX(250px)";
 
           // var data_arr = dataList[key];
           // var formatted_data=[];
